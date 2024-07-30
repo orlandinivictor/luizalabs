@@ -1,5 +1,28 @@
 import styled from "styled-components";
 
+export const NoLengthMessage = styled.div`
+  padding: 0 2rem;
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    font-size: 3rem;
+    fill: #595959;
+  }
+
+  h2 {
+    text-align: center;
+    margin-top: 2rem;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: #595959;
+  }
+`;
+
 export const Content = styled.div`
   margin-top: 2rem;
 
