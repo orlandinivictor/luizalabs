@@ -5,9 +5,8 @@ export const Container = styled.nav<{ $activecontent: string }>`
   border-bottom: 1px solid #aaa;
 
   button {
-    text-decoration: none;
     font-size: 1.125rem;
-    color: #5c00b3;
+    color: #30006b;
 
     &[data-content="${(props) => props.$activecontent.replace(/\//g, "")}"] {
       font-weight: 700;

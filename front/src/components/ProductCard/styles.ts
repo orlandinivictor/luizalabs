@@ -64,7 +64,7 @@ export const Container = styled.div`
       margin-top: -0.25rem;
       font-size: 1.125rem;
       font-weight: 700;
-      color: #4f0099;
+      color: #30006b;
     }
   }
 `;
