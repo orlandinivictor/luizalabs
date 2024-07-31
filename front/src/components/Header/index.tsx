@@ -40,7 +40,7 @@ export function Header({ navigate }: IComponentProps) {
           </button>
 
           <div className="userContainer">
-            <button onClick={handleOptionsClick}>
+            <button data-testid="userButton" onClick={handleOptionsClick}>
               <FaUserCircle />
             </button>
 
