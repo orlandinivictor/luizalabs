@@ -1,0 +1,22 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Navigation Tests > match snapshot 1`] = `
+<nav
+  className="sc-braxZu eOGVZE"
+>
+  <button
+    data-content="home"
+    onClick={[Function]}
+  >
+    Home
+  </button>
+  <span>
+    /
+  </span>
+  <button
+    data-content="wishlist"
+  >
+    Wishlist
+  </button>
+</nav>
+`;

@@ -1,4 +1,4 @@
-import { IProduct } from "./interfaces/Product";
+import { IProduct } from "./interfaces/Product.interface";
 
 export const getWishlist = (): IProduct[] => {
   const rawWishlist = localStorage.getItem("wishlist") || "[]";

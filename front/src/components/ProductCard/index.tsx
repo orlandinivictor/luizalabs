@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
 
 import { FaRegHeart } from "react-icons/fa";
 import { MdClose } from "react-icons/md";
@@ -7,9 +6,10 @@ import { LiaStarSolid, LiaStarHalf } from "react-icons/lia";
 
 import { formatCurrency } from "../../utils/formatCurrency";
 import { getWishlist } from "../../utils/customLocalStorage";
-import type { IProduct } from "../../utils/interfaces/Product";
+import type { IProduct } from "../../utils/interfaces/Product.interface";
 
 import { Button, Container, Star } from "./styles";
+import { IComponentProps } from "../../utils/interfaces/Component.interface";
 
 interface IProductCard {
   setWishlist?: (wishlist: IProduct[]) => void;
@@ -23,8 +23,11 @@ const alreadyWishlisted = (code: string): boolean => {
   return Boolean(alreadyWishlisted);
 };
 
-export function ProductCard({ product, setWishlist }: IProductCard) {
-  const router = useLocation();
+export function ProductCard({
+  product,
+  setWishlist,
+  pathname = "",
+}: IProductCard & Pick<IComponentProps, "pathname">) {
   const [isWishlisted, setIsWishlisted] = useState(
     alreadyWishlisted(product.code)
   );
@@ -48,10 +51,10 @@ export function ProductCard({ product, setWishlist }: IProductCard) {
     <Container>
       <Button
         $isWishlisted={isWishlisted}
-        $activecontent={router.pathname}
+        $activecontent={pathname}
         onClick={handleWishlist}
       >
-        {router.pathname.includes("wishlist") ? <MdClose /> : <FaRegHeart />}
+        {pathname.includes("wishlist") ? <MdClose /> : <FaRegHeart />}
       </Button>
 
       <img src={product.image} alt={product.name} />

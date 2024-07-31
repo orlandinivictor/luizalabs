@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 import { FaUserCircle } from "react-icons/fa";
 import { CiHeart } from "react-icons/ci";
 
+import { IComponentProps } from "../../utils/interfaces/Component.interface";
+
 import { Container } from "./styles";
 
-export function Header() {
-  const navigate = useNavigate();
+export function Header({ navigate }: IComponentProps) {
   const containerRef = useRef<HTMLElement>(null);
 
   const [headerHeight, setHeaderHeight] = useState(0);
