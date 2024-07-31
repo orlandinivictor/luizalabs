@@ -10,10 +10,15 @@ import { Container } from "./styles";
 export function Header({ navigate }: IComponentProps) {
   const containerRef = useRef<HTMLElement>(null);
 
+  const [showOptions, setShowOptions] = useState(false);
   const [headerHeight, setHeaderHeight] = useState(0);
 
   const handleWishlist = () => {
     navigate("/wishlist");
+  };
+
+  const handleOptionsClick = () => {
+    setShowOptions(!showOptions);
   };
 
   useEffect(() => {
@@ -25,7 +30,7 @@ export function Header({ navigate }: IComponentProps) {
   return (
     <>
       <div style={{ height: headerHeight }} />
-      <Container ref={containerRef}>
+      <Container ref={containerRef} showOptions={showOptions}>
         <img src="/logo.svg" alt="Logo Netshoes" />
 
         <div>
@@ -34,9 +39,30 @@ export function Header({ navigate }: IComponentProps) {
             <span>Wishlist</span>
           </button>
 
-          <button>
-            <FaUserCircle />
-          </button>
+          <div className="userContainer">
+            <button onClick={handleOptionsClick}>
+              <FaUserCircle />
+            </button>
+
+            <div className="userContent">
+              <div className="border" />
+
+              <ul>
+                <li>
+                  <button onClick={handleOptionsClick}>Entrar</button>
+                </li>
+                <li>
+                  <button onClick={handleOptionsClick}>Minha Conta</button>
+                </li>
+                <li>
+                  <button onClick={handleOptionsClick}>Endereços</button>
+                </li>
+                <li>
+                  <button onClick={handleOptionsClick}>Minha Netshoes</button>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </Container>
     </>

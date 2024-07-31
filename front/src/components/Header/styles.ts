@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.header`
+export const Container = styled.header<{ showOptions: boolean }>`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -60,6 +60,46 @@ export const Container = styled.header`
         svg {
           font-size: 2.25rem;
           margin-right: 0.25rem;
+        }
+      }
+    }
+  }
+
+  div.userContainer {
+    position: relative;
+
+    div.userContent {
+      display: ${({ showOptions }) => (showOptions ? "block" : "none")};
+      background-color: white;
+      box-shadow: 0 1px 5px 2px rgba(0, 0, 0, 0.3);
+      border-radius: 0.25rem;
+      position: absolute;
+      margin-top: 0.5rem;
+      top: 2.25rem;
+      right: 0.375rem;
+      padding: 0.5rem;
+      width: 9rem;
+
+      div.border {
+        width: 0;
+        height: 0;
+        border-left: 0.5rem solid transparent;
+        border-right: 0.5rem solid transparent;
+
+        border-bottom: 0.5rem solid white;
+
+        position: absolute;
+        top: -0.5rem;
+        right: 0.125rem;
+      }
+
+      ul {
+        list-style: none;
+      }
+      li {
+        button {
+          font-size: 1.125rem;
+          color: #595959;
         }
       }
     }
