@@ -1,13 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { Home } from "./pages/Home";
-import { GlobalStyle } from "./styles.ts";
 import {
   createBrowserRouter,
   Navigate,
   RouterProvider,
 } from "react-router-dom";
+
+import { Home } from "./pages/Home";
 import { Wishlist } from "./pages/Wishlist/index.tsx";
+
+import { GlobalStyle } from "./styles.ts";
 
 const router = createBrowserRouter([
   {
