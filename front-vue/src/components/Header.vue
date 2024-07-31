@@ -1,7 +1,14 @@
 <script setup>
+import { ref } from "vue";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
+
+const showOptions = ref(false);
+
+const handleOptionsClick = () => {
+  showOptions.value = !showOptions.value;
+};
 
 const handleWishlist = () => {
   router.push("/wishlist");
@@ -21,9 +28,34 @@ const handleWishlist = () => {
         <span class="hidden sm:block text-xl font-semibold">Wishlist</span>
       </button>
 
-      <button class="text-white">
-        <v-icon name="fa-user-circle" scale="2" />
-      </button>
+      <div class="relative">
+        <button class="text-white" @click="handleOptionsClick">
+          <v-icon name="fa-user-circle" scale="2" />
+        </button>
+
+        <div
+          class="bg-white shadow-lg absolute mt-2 right-2 rounded p-3 w-36"
+          v-bind:class="showOptions ? 'block' : 'hidden'"
+        >
+          <div
+            class="w-0 h-0 border-x-8 border-b-8 border-x-transparent border-white absolute -top-2 right-0.5"
+          />
+          <ul>
+            <li>
+              <button @click="handleOptionsClick">Entrar</button>
+            </li>
+            <li>
+              <button @click="handleOptionsClick">Minha Conta</button>
+            </li>
+            <li>
+              <button @click="handleOptionsClick">Endereços</button>
+            </li>
+            <li>
+              <button @click="handleOptionsClick">Minha Netshoes</button>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </header>
 </template>
