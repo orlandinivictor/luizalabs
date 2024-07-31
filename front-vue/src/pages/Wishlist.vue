@@ -25,7 +25,7 @@ fetchWishlist();
   <div
     style="height: 50vh"
     class="px-4 w-full flex flex-col items-center justify-center"
-    v-bind:class="!products.length ? 'flex' : 'block'"
+    v-bind:class="!products.length ? 'flex' : 'hidden'"
   >
     <v-icon name="fa-regular-heart" scale="3" class="fill-gray-600" />
     <h2 class="text-center mt-4 font-semibold text-2xl text-gray-600">
